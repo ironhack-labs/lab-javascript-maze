@@ -2,9 +2,11 @@
 
 ## Introduction
 
-- Maze
-- Blockly
-- JS + TDD
+During an amazing trip to the mountains, we have a great chance: to visit a mine. It seems very sure, but during the visit we get trapped under ground! The mine seems a maze, so we will need to create a maze solver to be able to get out from there.
+
+![](https://i.imgur.com/DDuEYCb.png)
+
+We have prepared a bunch of tests that will guide you through the process, and will help you get out of there as soon as we can. Before start coding, we are going to play a blockly game that will help you to understand how the maze solver will work.
 
 ## Blockly Games: Maze
 
@@ -42,8 +44,27 @@ If you get stucked in level 10, here is the [Solution](https://i.imgur.com/QlGNL
 
 ## Maze
 
-In this maze exercise, there are a few functions that we use to generate the blocks:
+In this second part of the exercise, we are going to create a maze solver. We are trapped under ground with a group of miners. We have to implement an algorithm that allow us to get out of there before is too late.
 
+In this exercise, there are a few functions that we use to generate the blocks:
+
+```javascript
+var Maze = function(maze) {
+  this.pos_x = 0;
+  this.pos_y = 0;
+  this.maze = maze;
+}
+
+Maze.prototype.turnLeft      = function(){}
+Maze.prototype.isPathForward = function(){}
+Maze.prototype.isPathLeft    = function(){}
+Maze.prototype.isPathRight   = function(){}
+Maze.prototype.turnRight     = function(){}
+Maze.prototype.moveForward   = function(){}
+Maze.prototype.notDone       = function(){}
+```
+
+Given the following map, our miners should be able to get out of the mine by following the correct path. The mine map is a matrix where you have an X if the path is forbiden, and nothing if its allowed:
 
 Row/Col | 0 | 1 | 2 | 3 | 4 | 5
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
@@ -55,22 +76,7 @@ Row/Col | 0 | 1 | 2 | 3 | 4 | 5
 | 5 |   | X | X | X | X | **End**
 | 6 |   |   |   |   |   |
 
-
-```javascript
-var Maze = function(maze) {
-  this.pos_x = 0;
-  this.pos_y = 0;
-  this.maze = maze;
-}
-
-Maze.prototype.isPathForward = function(){}
-Maze.prototype.isPathLeft    = function(){}
-Maze.prototype.isPathRight   = function(){}
-Maze.prototype.moveForward   = function(){}
-Maze.prototype.turnLeft      = function(){}
-Maze.prototype.turnRight     = function(){}
-Maze.prototype.notDone       = function(){}
-```
+And the correct code to solve this maze is the same that we have used in the level 10 of the blockly game:
 
 ```javascript
 while (maze.notDone()) {
@@ -91,6 +97,40 @@ while (maze.notDone()) {
   }
 }
 ```
+
+### Exercise
+
+In the starter-code folder of this project, you will find the tests we have created to solve this maze. We are going to use TDD with Node and [Mocha](https://mochajs.org/) to do the exercise. To execute the tests, run the following commands:
+
+```
+$ cd starter-code
+$ npm install
+$ npm test
+```
+
+We are launching our tests by executing the instructions above. In the console we will get a result like this:
+
+![](https://i.imgur.com/7Rf0ojt.png)
+
+#### TDD
+
+First of all we have to solve all the tests we have created to be sure that our maze functionality works as we expect. We will solve all of them by using [TDD](https://en.wikipedia.org/wiki/Test-driven_development). You will find all the test `/test/maze-test.js` file.
+
+#### Solve maze
+
+Once we have solved all the tests we have in the `/test/maze-test.js`, we would be able to solve the maze we can find in `index.js` file. We have created a basic mine map that you have to solve:
+
+Row/Col | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | X |   |   |   | **Start** | X |  |
+| 1 | X |   | X | X | X | X | X |
+| 2 | X |   | X | X |   | X |  |
+| 3 |   |   | X | X |   | X | X |
+| 4 |   | X |   |   |   | X | X |
+| 5 |   | X | X | X | X |   |  |
+| 6 |   |   |   |   | **End** |  | X |
+
+**Create the correct sequence of functions that will allow our miners to get out the mine. Use the maze solver that we have created in the previous step of this exercise.**
 
 ## Extra Resources
 
