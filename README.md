@@ -1,10 +1,12 @@
+![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
+
 # JS | Maze
 
 ## Introduction
 
 During an amazing trip to the mountains, we have a great chance: to visit a mine. It seems very sure, but during the visit we get trapped under ground! The mine seems a maze, so we will need to create a maze solver to be able to get out from there.
 
-![](https://i.imgur.com/DDuEYCb.png)
+![Maze Picture](https://i.imgur.com/DDuEYCb.png)
 
 We have prepared a bunch of tests that will guide you through the process, and will help you get out of there as soon as we can. Before start coding, we are going to play a blockly game that will help you to understand how the maze solver will work.
 
@@ -29,6 +31,26 @@ When you have the solution, like in the image above, you have to run the program
 ![](https://i.imgur.com/vmm6AXq.png =400x)
 
 The first level is very easy, we are just implementing the `moveForward()` function twice. Easy, right? Click on the Ok button to play the level 2.
+
+## Requirements
+
+- [Fork this repo](https://guides.github.com/activities/forking/)
+- Clone this repo into your `~/code/labs`
+
+## Submission
+
+Upon completion, run the following commands
+```
+$ git add .
+$ git commit -m "done"
+$ git push origin master
+```
+Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.
+
+In the Pull request name, add your name and last names separated by a dash "-"
+
+## Deliverables
+In your starter code folder you will find every file you need to finish the game. Push every needed file to make your game work properly.
 
 ### Exercise
 
