@@ -82,6 +82,8 @@ describe('Maze', function() {
   describe('isPathForward()', function() {
     describe('initial position', function(){
       it('no path above', function() {
+        maze._miner.dir = 0;
+        maze.map
         expect(maze.isPathForward()).to.equal(false);
       });
       it('no path right', function() {
