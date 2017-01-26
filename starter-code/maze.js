@@ -1,7 +1,7 @@
 var Maze = function(map, exit) {
   this._miner = {
-    row: 0, //2
-    col: 0, //4
+    row: 0,
+    col: 0,
     dir: 0 // 0:up, 1:right, 2: down, 3:left
   };
   this._maze = map;
@@ -271,9 +271,11 @@ Maze.prototype.moveForward   = function(){
 
 Maze.prototype.notDone       = function(){
   if (this._miner.col === this._exit.col && this._miner.row === this._exit.row) {
+    console.log("done");
     return true;
   }
   else {
+    console.log("not");
     return false;
   }
 }
