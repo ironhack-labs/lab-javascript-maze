@@ -1,4 +1,4 @@
-var Maze = require('maze.js');
+var Maze = require('./maze.js');
 
 var T = true, F = false;
 var map = [
@@ -12,6 +12,11 @@ var map = [
 var exit= {row:5, col:5};
 
 var maze = new Maze(map,exit);
+
+// maze._miner.dir = 1
+// maze._miner.row = 4;
+// maze._miner.col = 2;
+// maze.isPathForward();
 
 // https://blockly-games.appspot.com/maze?lang=en
 while (maze.notDone()) {
