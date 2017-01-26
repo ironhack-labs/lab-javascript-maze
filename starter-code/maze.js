@@ -8,17 +8,26 @@ var Maze = function(map, exit) {
   this._exit = {
     row: exit.row,
     col: exit.col
-  }
-}
+  };
+};
 
 Maze.prototype.turnLeft      = function(){
-}
+  this._miner.dir = this._miner.dir === 0 ? 3 : this._miner.dir - 1;
+  };
 
 Maze.prototype.turnRight     = function(){
-}
+  this._miner.dir = this._miner.dir === 3 ? 0 : this._miner.dir + 1;
+};
 
 Maze.prototype.isPathForward = function(){
-}
+  switch (this._miner.dir) {
+    case expression:
+
+      break;
+    default:
+
+  }
+};
 
 Maze.prototype.isPathLeft    = function(){
 }
