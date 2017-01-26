@@ -40,28 +40,16 @@ Maze.prototype.turnRight     = function(){
 
 Maze.prototype.isPathForward = function(){
   if (this._miner["dir"] === 0) {
-    if (this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true) {
-      return true;
-    }
-    return false;
+    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
   }
   else if (this._miner["dir"] === 1) {
-    if (this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true) {
-      return true;
-    }
-    return false;
+    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
   }
   else if (this._miner["dir"] === 2) {
-    if (this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true) {
-      return true;
-    }
-    return false;
+    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
   }
   else if (this._miner["dir"] === 3) {
-    if (this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true) {
-      return true;
-    }
-    return false;
+    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
   }
 }
 
