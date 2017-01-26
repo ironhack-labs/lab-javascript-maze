@@ -39,62 +39,82 @@ Maze.prototype.turnRight     = function(){
 
 
 Maze.prototype.isPathForward = function(){
-  if (this._miner["dir"] === 0) {
-    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
+  var dir = this._miner["dir"];
+  var row = this._miner["row"];
+  var col = this._miner["col"];
+  var maze = this._maze;
+
+  if (dir === 0) {
+    return row > 0 && maze[row-1][col] === true ? true : false;
   }
-  else if (this._miner["dir"] === 1) {
-    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
+  else if (dir === 1) {
+    return col < 5 && maze[row][col+1] === true ? true : false;
   }
-  else if (this._miner["dir"] === 2) {
-    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
+  else if (dir === 2) {
+    return row < 6 && maze[row+1][col] === true ? true : false;
   }
-  else if (this._miner["dir"] === 3) {
-    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
+  else if (dir === 3) {
+    return col > 0 && maze[row][col-1] === true ? true : false;
   }
 }
 
 Maze.prototype.isPathLeft    = function(){
-  if (this._miner["dir"] === 0) {
-    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
+  var dir = this._miner["dir"];
+  var row = this._miner["row"];
+  var col = this._miner["col"];
+  var maze = this._maze;
+
+  if (dir === 0) {
+    return col > 0 && maze[row][col-1] === true ? true : false;
   }
-  else if (this._miner["dir"] === 1) {
-    return this._miner.col > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
+  else if (dir === 1) {
+    return col > 0 && maze[row-1][col] === true ? true : false;
   }
-  else if (this._miner["dir"] === 2) {
-    return this._miner.row < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
+  else if (dir === 2) {
+    return row < 5 && maze[row][col+1] === true ? true : false;
   }
-  else if (this._miner["dir"] === 3) {
-    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
+  else if (dir === 3) {
+    return row < 6 && maze[row+1][col] === true ? true : false;
   }
 }
 
 Maze.prototype.isPathRight   = function(){
-  if (this._miner["dir"] === 0) {
-    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
+  var dir = this._miner["dir"];
+  var row = this._miner["row"];
+  var col = this._miner["col"];
+  var maze = this._maze;
+
+  if (dir === 0) {
+    return col < 5 && maze[row][col+1] === true ? true : false;
   }
-  else if (this._miner["dir"] === 1) {
-    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
+  else if (dir === 1) {
+    return row < 6 && maze[row+1][col] === true ? true : false;
   }
-  else if (this._miner["dir"] === 2) {
-    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
+  else if (dir === 2) {
+    return col > 0 && maze[row][col-1] === true ? true : false;
   }
-  else if (this._miner["dir"] === 3) {
-    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
+  else if (dir === 3) {
+    return row > 0 && maze[row-1][col] === true ? true : false;
   }
 }
 
 Maze.prototype.moveForward   = function(){
-  if (this._miner["dir"] === 0){
-    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? (this._miner.row--, true) : false;
+  var dir = this._miner["dir"];
+  var row = this._miner.row;
+  var col = this._miner.col;
+  var maze = this._maze;
+
+  if (dir === 0){
+    return this._miner.row > 0 && this._maze[this._miner.row-1][col] === true ? (this._miner.row--, true) : false;
   }
-  else if (this._miner["dir"] === 1){
-    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? (this._miner.col++, true) : false;
+  else if (dir === 1){
+    return col < 5 && this._maze[this._miner.row][col+1] === true ? (this._miner.col++, true) : false;
   }
-  else if (this._miner["dir"] === 2){
-    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? (this._miner.row++, true) : false;
+  else if (dir === 2){
+    return this._miner.row < 6 && this._maze[this._miner.row+1][col] === true ? (this._miner.row++, true) : false;
   }
-  else if (this._miner["dir"] === 3){
-    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? (this._miner.col--, true) : false;
+  else if (dir === 3){
+    return col > 0 && this._maze[this._miner.row][col-1] === true ? (this._miner.col--, true) : false;
   }
 }
 
