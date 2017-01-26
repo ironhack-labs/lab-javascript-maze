@@ -11,273 +11,107 @@ var Maze = function(map, exit) {
   }
 }
 
-Maze.prototype.turnLeft      = function(){
-  switch(this._miner["dir"]){
+function turn(miner,ifUp,ifRight,ifDown,ifLeft){
+  switch(miner["dir"]){
     case 0:
-      this._miner["dir"] = 3;
+      miner["dir"] = ifUp;
       break;
     case 1:
-      this._miner["dir"] = 0;
+      miner["dir"] = ifRight;
       break;
     case 2:
-      this._miner["dir"] = 1;
+      miner["dir"] = ifDown;
       break;
     case 3:
-      this._miner["dir"] = 2;
+      miner["dir"] = ifLeft;
       break;
   }
+}
+
+Maze.prototype.turnLeft      = function(){
+  turn(this._miner,3,0,1,2);
 }
 
 Maze.prototype.turnRight     = function(){
-  switch(this._miner["dir"]){
-    case 0:
-      this._miner["dir"] = 1;
-      break;
-    case 1:
-      this._miner["dir"] = 2;
-      break;
-    case 2:
-      this._miner["dir"] = 3;
-      break;
-    case 3:
-      this._miner["dir"] = 0;
-      break;
-  }
+  turn(this._miner,1,2,3,0);
 }
+
+
 
 Maze.prototype.isPathForward = function(){
   if (this._miner["dir"] === 0) {
-    if (this._miner.row > 0) {
-      if (this._maze[this._miner.row-1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
+    if (this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true) {
+      return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
   else if (this._miner["dir"] === 1) {
-    if (this._miner.col < 5) {
-      if (this._maze[this._miner.row][this._miner.col+1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
+    if (this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true) {
+      return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
   else if (this._miner["dir"] === 2) {
-    if (this._miner.row < 6) {
-      if (this._maze[this._miner.row+1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
+    if (this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true) {
+      return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
   else if (this._miner["dir"] === 3) {
-    if (this._miner.col > 0) {
-      if (this._maze[this._miner.row][this._miner.col-1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
+    if (this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true) {
+      return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
 }
 
 Maze.prototype.isPathLeft    = function(){
   if (this._miner["dir"] === 0) {
-    if (this._miner.col > 0) {
-      if (this._maze[this._miner.row][this._miner.col-1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
   }
   else if (this._miner["dir"] === 1) {
-    if (this._miner.col > 0) {
-      if (this._maze[this._miner.row-1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.col > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
   }
   else if (this._miner["dir"] === 2) {
-    if (this._miner.row < 5) {
-      if (this._maze[this._miner.row][this._miner.col+1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.row < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
   }
   else if (this._miner["dir"] === 3) {
-    if (this._miner.row < 6) {
-      if (this._maze[this._miner.row+1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
   }
 }
 
 Maze.prototype.isPathRight   = function(){
   if (this._miner["dir"] === 0) {
-    if (this._miner.col < 5) {
-      if (this._maze[this._miner.row][this._miner.col+1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? true : false;
   }
   else if (this._miner["dir"] === 1) {
-    if (this._miner.row < 6) {
-      if (this._maze[this._miner.row+1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? true : false;
   }
   else if (this._miner["dir"] === 2) {
-    if (this._miner.col > 0) {
-      if (this._maze[this._miner.row][this._miner.col-1] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? true : false;
   }
   else if (this._miner["dir"] === 3) {
-    if (this._miner.row > 0) {
-      if (this._maze[this._miner.row-1][this._miner.col] === true){
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false;
-    }
+    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? true : false;
   }
 }
 
 Maze.prototype.moveForward   = function(){
   if (this._miner["dir"] === 0){
-    if (this._miner.row > 0){
-      if (this._maze[this._miner.row-1][this._miner.col] === true) {
-        this._miner.row--;
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false
-    }
+    return this._miner.row > 0 && this._maze[this._miner.row-1][this._miner.col] === true ? (this._miner.row--, true) : false;
   }
   else if (this._miner["dir"] === 1){
-    if (this._miner.col < 5){
-      if (this._maze[this._miner.row][this._miner.col+1] === true) {
-        this._miner.col++;
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false
-    }
+    return this._miner.col < 5 && this._maze[this._miner.row][this._miner.col+1] === true ? (this._miner.col++, true) : false;
   }
   else if (this._miner["dir"] === 2){
-    if (this._miner.row < 6){
-      if (this._maze[this._miner.row+1][this._miner.col] === true) {
-        this._miner.row++;
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false
-    }
+    return this._miner.row < 6 && this._maze[this._miner.row+1][this._miner.col] === true ? (this._miner.row++, true) : false;
   }
   else if (this._miner["dir"] === 3){
-    if (this._miner.col > 0){
-      if (this._maze[this._miner.row][this._miner.col-1] === true) {
-        this._miner.col--;
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return false
-    }
+    return this._miner.col > 0 && this._maze[this._miner.row][this._miner.col-1] === true ? (this._miner.col--, true) : false;
   }
 }
 
 Maze.prototype.notDone       = function(){
-  if (this._miner.col === this._exit.col && this._miner.row === this._exit.row) {
-    console.log("done");
-    return true;
-  }
-  else {
-    console.log("not");
-    return false;
-  }
+  return this._miner.col === this._exit.col && this._miner.row === this._exit.row ? (console.log("done"),true): (console.log("not done"),false)
 }
 
 module.exports = Maze;
