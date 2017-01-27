@@ -45,16 +45,16 @@ Maze.prototype.isPathForward = function(){
   var maze = this._maze;
 
   if (dir === 0) {
-    return row > 0 && maze[row-1][col] === true ? true : false;
+    return row > 0 && maze[row-1][col] === true;
   }
   else if (dir === 1) {
-    return col < 5 && maze[row][col+1] === true ? true : false;
+    return col < 5 && maze[row][col+1] === true;
   }
   else if (dir === 2) {
-    return row < 6 && maze[row+1][col] === true ? true : false;
+    return row < 6 && maze[row+1][col] === true;
   }
   else if (dir === 3) {
-    return col > 0 && maze[row][col-1] === true ? true : false;
+    return col > 0 && maze[row][col-1] === true;
   }
 }
 
@@ -65,16 +65,16 @@ Maze.prototype.isPathLeft    = function(){
   var maze = this._maze;
 
   if (dir === 0) {
-    return col > 0 && maze[row][col-1] === true ? true : false;
+    return col > 0 && maze[row][col-1] === true;
   }
   else if (dir === 1) {
-    return col > 0 && maze[row-1][col] === true ? true : false;
+    return col > 0 && maze[row-1][col] === true;
   }
   else if (dir === 2) {
-    return row < 5 && maze[row][col+1] === true ? true : false;
+    return row < 5 && maze[row][col+1] === true;
   }
   else if (dir === 3) {
-    return row < 6 && maze[row+1][col] === true ? true : false;
+    return row < 6 && maze[row+1][col] === true;
   }
 }
 
@@ -85,16 +85,16 @@ Maze.prototype.isPathRight   = function(){
   var maze = this._maze;
 
   if (dir === 0) {
-    return col < 5 && maze[row][col+1] === true ? true : false;
+    return col < 5 && maze[row][col+1] === true;
   }
   else if (dir === 1) {
-    return row < 6 && maze[row+1][col] === true ? true : false;
+    return row < 6 && maze[row+1][col] === true;
   }
   else if (dir === 2) {
-    return col > 0 && maze[row][col-1] === true ? true : false;
+    return col > 0 && maze[row][col-1] === true;
   }
   else if (dir === 3) {
-    return row > 0 && maze[row-1][col] === true ? true : false;
+    return row > 0 && maze[row-1][col] === true;
   }
 }
 
