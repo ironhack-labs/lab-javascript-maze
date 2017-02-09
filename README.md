@@ -4,11 +4,11 @@
 
 ## Introduction
 
-During an amazing trip to the mountains, we have a great chance: to visit a mine. It seems very sure, but during the visit we get trapped under ground! The mine seems a maze, so we will need to create a maze solver to be able to get out from there.
+During an amazing trip to the mountains, we have the opportunity to visit a mine. It seems very solid, but during the visit we get trapped underground! The mine is a maze, so we need to create a maze solver to be able to get out from there.
 
 ![Maze Picture](https://i.imgur.com/DDuEYCb.png)
 
-We have prepared a bunch of tests that will guide you through the process, and will help you get out of there as soon as we can. Before start coding, we are going to play a blockly game that will help you to understand how the maze solver will work.
+We have prepared a bunch of tests that will guide you through the process and will help us get out of there as soon as we can. Before start coding, we are going to play a blockly game that will help you to understand how the maze solver will work.
 
 ## Blockly Games: Maze
 
@@ -16,19 +16,19 @@ We have prepared a bunch of tests that will guide you through the process, and w
 
 We want you to take a look at the [Maze](https://blockly-games.appspot.com/maze?lang=en) to be introduced in the amazing Maze world! If you [visit the game](https://blockly-games.appspot.com/maze?lang=en), you will find the following:
 
-![](https://i.imgur.com/NbDwcTm.png)
+![Maze picture](https://i.imgur.com/NbDwcTm.png)
 
 The game layout is divided in several parts:
 
 - At the top of the page, you can find the current level.
-- On the left, you can see the path you have to obtain. Your goal is the red pin at the end of the yellow line, and the line is the path we have to achieve with the lilac blocks.
-- On the right, you have the "game board", that is divided in two different sections:
+- On the left of the page, you can see the path you have to go through. Your goal is to reach the red pin at the end of the yellow line, and the line is the path we have to travel with the lilac blocks.
+- On the right side, you have the "game board", that is divided in two different sections:
 	- The left side contains the blocks you can use to solve the puzzle
 	- The right side is your "canvas", where you have to join the blocks and create your solution
 
-When you have the solution, like in the image above, you have to run the program by clicking on the red button. You will see how the yellow man goes from the initial position to its destination. Once the goal is achieved, it will appear the JavaScript code that made that possible:
+When you have the solution, like in the image above, run the program by clicking on the red button. You will see how the yellow man goes from the initial position to its destination. Once the goal is achieved, the web will show the JavaScript code applied:
 
-![](https://i.imgur.com/vmm6AXq.png =400x)
+![Code picture](https://i.imgur.com/vmm6AXq.png =400x)
 
 The first level is very easy, we are just implementing the `moveForward()` function twice. Easy, right? Click on the Ok button to play the level 2.
 
@@ -40,6 +40,7 @@ The first level is very easy, we are just implementing the `moveForward()` funct
 ## Submission
 
 Upon completion, run the following commands
+
 ```
 $ git add .
 $ git commit -m "done"
@@ -52,11 +53,13 @@ In the Pull request name, add your name and last names separated by a dash "-"
 ## Deliverables
 In your starter code folder you will find every file you need to finish the game. Push every needed file to make your game work properly.
 
-### Exercise
+## The Maze
 
-In the first part of this exercise, you have to complete the 10 levels of this game. Pay special attention to each level to see which code is created to solve the puzzles. We will use this code later.
+### Iteration 1
 
-In the level one we just have blocks to move forward, turn left, and turn right. In the following levels it will appear loops and conditional statements.
+In the first part of this exercise, you have to complete the 10 levels of this game. Pay special attention to each level to see the code that is created to solve the puzzles. We will use this code later.
+
+In the first level, the solution will include block movements: forward, turn left, and turn right. In further levels, it will require loops and conditional statements.
 
 **Be careful, there is a maximum number of blocks you can use in each level!**
 
@@ -64,7 +67,7 @@ In the level one we just have blocks to move forward, turn left, and turn right.
 If you get stucked in level 10, here is the [Solution](https://i.imgur.com/QlGNLx5.png)
 
 
-## Maze
+### Iteration 2
 
 In this second part of the exercise, we are going to create a maze solver. We are trapped under ground with a group of miners. We have to implement an algorithm that allow us to get out of there before is too late.
 
@@ -120,7 +123,7 @@ while (maze.notDone()) {
 }
 ```
 
-### Exercise
+### Iteration 3
 
 In the starter-code folder of this project, you will find the tests we have created to solve this maze. We are going to use TDD with Node and [Mocha](https://mochajs.org/) to do the exercise. To execute the tests, run the following commands:
 
@@ -132,15 +135,15 @@ $ npm test
 
 We are launching our tests by executing the instructions above. In the console we will get a result like this:
 
-![](https://i.imgur.com/7Rf0ojt.png)
+![Picture](https://i.imgur.com/7Rf0ojt.png)
 
-#### TDD
+### TDD
 
-First of all we have to solve all the tests we have created to be sure that our maze functionality works as we expect. We will solve all of them by using [TDD](https://en.wikipedia.org/wiki/Test-driven_development). You will find all the test `/test/maze-test.js` file.
+First we have to solve all the tests we have created to be sure that our maze functionality works as we expect. We will solve all of them by using [TDD](https://en.wikipedia.org/wiki/Test-driven_development). You will find all the tests in the `/test/maze-test.js` file.
 
-#### Solve maze
+### Solve maze
 
-Once we have solved all the tests we have in the `/test/maze-test.js`, we would be able to solve the maze we can find in `index.js` file. We have created a basic mine map that you have to solve:
+Once we have solved all the tests we have in the `/test/maze-test.js`, we should be able to solve the maze found in our `index.js` file. We have created a basic mine map that you have to solve:
 
 Row/Col | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
