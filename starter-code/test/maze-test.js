@@ -1,4 +1,4 @@
-var expect = require('chai');
+var expect = require('chai').expect;
 var Maze = require('../maze.js');
 
 describe('Maze', function() {
