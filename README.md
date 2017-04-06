@@ -28,7 +28,7 @@ The game layout is divided in several parts:
 
 When you have the solution, like in the image above, run the program by clicking on the red button. You will see how the yellow man goes from the initial position to its destination. Once the goal is achieved, the web will show the JavaScript code applied:
 
-![Code picture](https://i.imgur.com/vmm6AXq.png =400x)
+![Code picture](https://i.imgur.com/vmm6AXq.png)
 
 The first level is very easy, we are just implementing the `moveForward()` function twice. Easy, right? Click on the Ok button to play the level 2.
 
