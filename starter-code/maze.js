@@ -1,16 +1,3 @@
-/*
-
-map = [
-  [ T,  F , T,  T,  T,  F],
-  [ T,  F,  T,  F,  T,  F],
-  [ T,  T,  T,  F,  T,  F],
-  [ F,  F,  F,  F,  T,  F],
-  [ T,  T,  T,  T,  T,  F],
-  [ T,  F,  F,  F,  F,  T],
-  [ T,  T,  T,  T,  T,  T]];
-
-*/
-
 
 function Maze(map, exit) {
   this._miner = {
@@ -79,38 +66,13 @@ Maze.prototype.isPathForward = function(){
 };
 
 Maze.prototype.isPathLeft    = function(){
-  switch(this._miner.dir) {
-    case 0:
-      if(this._miner.col !== 0) return (this._maze[this._miner.row][this._miner.col - 1]);
-      return false;
-    case 1:
-      if(this._miner.row !== 0) return (this._maze[this._miner.row - 1][this._miner.col]);
-      return false;
-    case 2:
-      if(this._miner.col !== (this._maze[0].length - 1)) return (this._maze[this._miner.row][this._miner.col + 1]);
-      return false;
-    case 3:
-      if(this._miner.row !== this._maze.length - 1) return (this._maze[this._miner.row + 1][this._miner.col]);
-      return false;
-  }
+  this.turnLeft();
+  return this.isPathForward();
 };
 
 Maze.prototype.isPathRight   = function(){
-  switch(this._miner.dir){
-    case 0:
-      if(this._miner.col !== (this._maze[0].length - 1)) return (this._maze[this._miner.row][this._miner.col + 1]);
-      return false;
-    case 1:
-      if(this._miner.row !== this._maze.length - 1) return (this._maze[this._miner.row + 1][this._miner.col]);
-      return false;
-    case 2:
-      if(this._miner.col !== 0) return (this._maze[this._miner.row][this._miner.col - 1]);
-      return false;
-    case 3:
-      if(this._miner.row !== 0) return (this._maze[this._miner.row - 1][this._miner.col]);
-      return false;
-  }
-
+  this.turnRight();
+  return this.isPathForward();
 };
 
 Maze.prototype.moveForward   = function(){
@@ -132,10 +94,10 @@ Maze.prototype.moveForward   = function(){
      return true;
    }
    return false;
-
 };
 
-Maze.prototype.notDone       = function(){
+Maze.prototype.notDone = function(){
+  return (this._miner.row !== this._exit.row) && (this._miner.col !== this._exit.col);
 };
 
 module.exports = Maze;
