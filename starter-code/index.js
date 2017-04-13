@@ -1,5 +1,6 @@
 var Maze = require('maze.js');
 
+
 var T = true, F = false;
 var map = [
   [ T,  F , T,  T,  T,  F],
@@ -13,6 +14,7 @@ var exit= {row:5, col:5};
 
 var maze = new Maze(map,exit);
 
+
 // https://blockly-games.appspot.com/maze?lang=en
 while (maze.notDone()) {
   if (maze.isPathLeft()) {
@@ -20,7 +22,7 @@ while (maze.notDone()) {
     maze.moveForward();
   } else {
     if (maze.isPathForward()) {
-      maze.oveForward();
+      maze.moveForward();
     } else {
       if (maze.isPathRight()) {
         maze.turnRight();
@@ -31,3 +33,5 @@ while (maze.notDone()) {
     }
   }
 }
+
+console.log("The miner is FREE!");
