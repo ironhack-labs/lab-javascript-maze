@@ -13,6 +13,7 @@ var exit= {row:5, col:5};
 
 var maze = new Maze(map,exit);
 
+
 // https://blockly-games.appspot.com/maze?lang=en
 while (maze.notDone()) {
   if (maze.isPathLeft()) {
