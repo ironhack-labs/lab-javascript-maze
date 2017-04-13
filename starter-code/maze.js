@@ -1,3 +1,4 @@
+
 var Maze = function(map, exit) {
   this._miner = {
     row: 0,
@@ -60,7 +61,7 @@ Maze.prototype.moveForward   = function(){
 }
 
 Maze.prototype.notDone       = function(){
-  return this._miner.row===this._exit.row && this._miner.col === this._exit.col;
+  return this._miner.row!=this._exit.row || this._miner.col != this._exit.col;
 }
 
 
