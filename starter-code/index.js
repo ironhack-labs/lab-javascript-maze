@@ -1,7 +1,6 @@
 var Maze = require('maze.js');
 
 
-
 var T = true, F = false;
 var map = [
   [ T,  F , T,  T,  T,  F],
@@ -35,4 +34,4 @@ while (maze.notDone()) {
   }
 }
 
-
+console.log("The miner is FREE!");

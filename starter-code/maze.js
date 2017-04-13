@@ -46,9 +46,22 @@ Maze.prototype.isPathRight   = function(){
 }
 
 Maze.prototype.moveForward   = function(){
+  if(this.isPathForward()) {
+    switch(this._miner.dir) {
+      case 0: this._miner.row--; break;
+      case 1: this._miner.col++; break;
+      case 2: this._miner.row++; break;
+      case 3: this._miner.col--; break;
+    }
+    return true;
+  } else {
+    return false;
+  }
 }
 
 Maze.prototype.notDone       = function(){
+  return this._miner.row===this._exit.row && this._miner.col === this._exit.col;
 }
+
 
 module.exports = Maze;
