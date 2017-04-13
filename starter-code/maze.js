@@ -8,20 +8,33 @@ var Maze = function(map, exit) {
   this._exit = {
     row: exit.row,
     col: exit.col
+  };
+};
+
+Maze.prototype.turnLeft = function(){
+  if (this._miner.dir ===0){
+    this._miner.dir=4;
   }
-}
+    this._miner.dir--;
+};
 
-Maze.prototype.turnLeft      = function(){
-}
-
-Maze.prototype.turnRight     = function(){
-}
+Maze.prototype.turnRight = function(){
+  if(this._miner.dir===3){
+    this._miner.dir=0;
+  } else {
+    this._miner.dir++;
+  }
+};
 
 Maze.prototype.isPathForward = function(){
-}
+  if(this._miner.dir===2){
+    return true;
+  }
+  return false;
+};
 
 Maze.prototype.isPathLeft    = function(){
-}
+};
 
 Maze.prototype.isPathRight   = function(){
 }
