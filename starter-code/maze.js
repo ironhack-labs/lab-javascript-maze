@@ -12,12 +12,41 @@ var Maze = function(map, exit) {
 }
 
 Maze.prototype.turnLeft      = function(){
-}
+  switch (this._miner.dir) {
+    case 3:
+      this._miner.dir = 2;
+      break;
+    case 2:
+      this._miner.dir = 1;
+      break;
+    case 1:
+      this._miner.dir = 0;
+      break;
+    case 0:
+     this._miner.dir = 3;
+     break;
+  }
+};
 
 Maze.prototype.turnRight     = function(){
+  switch (this._miner.dir) {
+    case 0:
+      this._miner.dir = 1;
+      break;
+    case 1:
+      this._miner.dir = 2;
+      break;
+    case 2:
+      this._miner.dir = 3;
+      break;
+    case 3:
+     this._miner.dir = 0;
+     break;
+  }
 }
 
 Maze.prototype.isPathForward = function(){
+   
 }
 
 Maze.prototype.isPathLeft    = function(){
