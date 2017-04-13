@@ -4,7 +4,7 @@
   "description": "Lab Maze @ IronHack",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "mocha"
   },
   "scripts": {
     "test": "mocha test/maze-test.js"
