@@ -1,4 +1,5 @@
-var Maze = require('maze.js');
+var Maze = require('./maze.js');
+
 
 var T = true, F = false;
 var map = [
@@ -11,23 +12,22 @@ var map = [
   [ T,  T,  T,  T,  T,  T]];
 var exit= {row:5, col:5};
 
-var maze = new Maze(map,exit);
+var maze = new Maze(map, exit);
+
+console.log(maze.isPathForward(map));
 
 // https://blockly-games.appspot.com/maze?lang=en
 while (maze.notDone()) {
   if (maze.isPathLeft()) {
     maze.turnLeft();
     maze.moveForward();
+  } else if (maze.isPathForward()) {
+    maze.oveForward();
+  } else if (maze.isPathRight()) {
+    maze.turnRight();
+    maze.moveForward();
   } else {
-    if (maze.isPathForward()) {
-      maze.oveForward();
-    } else {
-      if (maze.isPathRight()) {
-        maze.turnRight();
-        maze.moveForward();
-      } else {
-        maze.turnLeft();
-      }
-    }
+    maze.turnLeft();
   }
 }
+
