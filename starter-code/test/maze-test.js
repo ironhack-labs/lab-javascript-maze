@@ -1,16 +1,14 @@
 var expect = require('chai').expect;
 var Maze = require('../maze.js');
 
-describe('Maze', function() {
+describe('Maze', function () {
 
   var T = true, F = false;
   var map, exit, maze;
 
   beforeEach(function(){
     map = [
-      [ T,  F , T,  T,  T,  F],
-      [ T,  F,  T,  F,  T,  F],
-      [ T,  T,  T,  F,  T,  F],
+      [ T,  F , T,  T,  T,  F],[ T,  F,  T,  F,  T,  F],[ T,  T,  T,  F,  T,  F],
       [ F,  F,  F,  F,  T,  F],
       [ T,  T,  T,  T,  T,  F],
       [ T,  F,  F,  F,  F,  T],
@@ -380,14 +378,14 @@ describe('Maze', function() {
       maze._miner.col = 4 ;
       maze._exit.row  = 3 ;
       maze._exit.col  = 4 ;
-      expect(maze.notDone()).to.equal(true);
+      expect(maze.notDone()).to.equal(false);
     });
     it('not finish position', function() {
       maze._miner.row = 0 ;
       maze._miner.col = 0 ;
       maze._exit.row  = 3 ;
       maze._exit.col  = 4 ;
-      expect(maze.notDone()).to.equal(false);
+      expect(maze.notDone()).to.equal(true);
     });
   });
 });
