@@ -1,6 +1,7 @@
 var Maze = require('maze.js');
 
 var T = true, F = false;
+
 var map = [
   [ T,  F , T,  T,  T,  F],
   [ T,  F,  T,  F,  T,  F],
