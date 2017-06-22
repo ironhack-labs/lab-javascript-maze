@@ -55,7 +55,7 @@ describe('Maze', function() {
       expect(maze._miner.dir).to.equal(3);
     });
   });
-
+//*
   describe('turnRight()', function() {
     it('from up - to right', function() {
       maze._miner.dir = 0;
@@ -380,14 +380,15 @@ describe('Maze', function() {
       maze._miner.col = 4 ;
       maze._exit.row  = 3 ;
       maze._exit.col  = 4 ;
-      expect(maze.notDone()).to.equal(true);
+      expect(maze.notDone()).to.equal(false);
     });
     it('not finish position', function() {
       maze._miner.row = 0 ;
       maze._miner.col = 0 ;
       maze._exit.row  = 3 ;
       maze._exit.col  = 4 ;
-      expect(maze.notDone()).to.equal(false);
+      expect(maze.notDone()).to.equal(true);
     });
   });
+  //*/
 });
