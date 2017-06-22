@@ -308,6 +308,7 @@ describe('Maze', function() {
       it('maze row below free ', function() {
         maze._miner.row = 1 ;
         maze._miner.col = 2 ;
+
         expect(maze.moveForward()).to.equal(true);
         expect(maze._miner.row).to.equal(2);
         expect(maze._miner.col).to.equal(2);
