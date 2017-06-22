@@ -27,18 +27,61 @@ Maze.prototype.turnRight = function() {
   }
 };
 
-// Maze.prototype.isPathForward = function() {
-//   switch (this._miner.dir) {
-//     case 0:
-//         if ((this._miner.row-1 )) {
-//
-//         }
-//
-//       break;
-//     default:
-//
-//   }
-// };
+Maze.prototype.isPathForward = function() {
+  switch (this._miner.dir) {
+    case 0:
+
+      if (this._miner.row === 0) {
+        return false;
+      } else if ((this.maze[this._miner.row - 1][this._miner.col])) {
+
+          return true;
+        } else {
+          return false;
+        }
+
+
+      break;
+    case 1:
+      if (this._miner.col === this.maze[0].length) {
+        return false;
+      } else {
+        if ((this.maze[this._miner.row][this._miner.col + 1])) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      break;
+    case 2:
+      if (this._miner.row === this.maze.length) {
+        return false;
+      }else {
+        if ((this.maze[this._miner.row + 1][this._miner.col])) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      break;
+    case 3:
+      if (this._miner.col === 0) {
+        return false;
+      }else {
+        if ((this.maze[this._miner.row][this._miner.col - 1])) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      break;
+
+
+  }
+};
 
 Maze.prototype.isPathLeft = function() {
 
