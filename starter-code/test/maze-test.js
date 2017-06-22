@@ -1,3 +1,5 @@
+
+
 var expect = require('chai').expect;
 var Maze = require('../maze.js');
 
