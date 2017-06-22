@@ -20,7 +20,7 @@ while (maze.notDone()) {
     maze.moveForward();
   } else {
     if (maze.isPathForward()) {
-      maze.oveForward();
+      maze.moveForward();
     } else {
       if (maze.isPathRight()) {
         maze.turnRight();
