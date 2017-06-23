@@ -79,24 +79,24 @@ describe('Maze', function() {
     });
   });
 
-  // describe('isPathForward()', function() {
-  //   describe('initial position', function(){
-  //     it('no path above', function() {
-  //       expect(maze.isPathForward()).to.equal(false);
-  //     });
-  //     it('no path right', function() {
-  //       maze._miner.dir = 1;
-  //       expect(maze.isPathForward()).to.equal(false);
-  //     });
-  //     it('path down', function() {
-  //       maze._miner.dir = 2;
-  //       expect(maze.isPathForward()).to.equal(true);
-  //     });
-  //     it('no path left', function() {
-  //       maze._miner.dir = 3;
-  //       expect(maze.isPathForward()).to.equal(false);
-  //     });
-  // //   });
+  describe('isPathForward()', function() {
+    describe('initial position', function(){
+      it('no path above', function() {
+        expect(maze.isPathForward()).to.equal(false);
+      });
+      it('no path right', function() {
+        maze._miner.dir = 1;
+        expect(maze.isPathForward()).to.equal(false);
+      });
+      it('path down', function() {
+        maze._miner.dir = 2;
+        expect(maze.isPathForward()).to.equal(true);
+      });
+      it('no path left', function() {
+        maze._miner.dir = 3;
+        expect(maze.isPathForward()).to.equal(false);
+      });
+    });
 
     describe('check up', function(){
       beforeEach(function() { maze._miner.dir = 0 });
