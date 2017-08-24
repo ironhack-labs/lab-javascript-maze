@@ -99,7 +99,7 @@ describe('Maze', function() {
     });
 
     describe('check up', function(){
-      beforeEach(function() { maze._miner.dir = 0 });
+      beforeEach(function() { maze._miner.dir = 0; });
       it('first row', function() {
         expect(maze.isPathForward()).to.equal(false);
       });
@@ -116,7 +116,7 @@ describe('Maze', function() {
     });
 
     describe('check down', function(){
-      beforeEach(function() { maze._miner.dir = 2 });
+      beforeEach(function() { maze._miner.dir = 2; });
       it('last row', function() {
         maze._miner.row = 6;
         maze._miner.col = 4;
