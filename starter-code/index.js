@@ -2,13 +2,13 @@ var Maze = require('maze.js');
 
 var T = true, F = false;
 var map = [
-  [ T,  F , T,  T,  T,  F],
+  [ T,  F , T,  T,  T,  F], // row 0
   [ T,  F,  T,  F,  T,  F],
   [ T,  T,  T,  F,  T,  F],
   [ F,  F,  F,  F,  T,  F],
   [ T,  T,  T,  T,  T,  F],
   [ T,  F,  F,  F,  F,  T],
-  [ T,  T,  T,  T,  T,  T]];
+  [ T,  T,  T,  T,  T,  T]]; // row 6
 var exit= {row:5, col:5};
 
 var maze = new Maze(map,exit);
@@ -20,7 +20,7 @@ while (maze.notDone()) {
     maze.moveForward();
   } else {
     if (maze.isPathForward()) {
-      maze.oveForward();
+      maze.moveForward();
     } else {
       if (maze.isPathRight()) {
         maze.turnRight();
