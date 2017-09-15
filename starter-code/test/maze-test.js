@@ -80,6 +80,7 @@ describe('Maze', function() {
   });
 
   describe('isPathForward()', function() {
+
     describe('initial position', function(){
       it('no path above', function() {
         expect(maze.isPathForward()).to.equal(false);
