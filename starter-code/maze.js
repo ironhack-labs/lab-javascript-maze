@@ -15,7 +15,7 @@ Maze.prototype.turnLeft = function() {
   if (this._miner.dir > 0) {
     this._miner.dir--;
   } else if (this._miner.dir === 0) {
-    this._miner.dir += 3;
+    this._miner.dir = 3;
   }
 };
 
@@ -23,11 +23,11 @@ Maze.prototype.turnRight = function() {
   if (this._miner.dir < 3) {
     this._miner.dir++;
   } else if (this._miner.dir === 3) {
-    this._miner.dir -= 3;
+    this._miner.dir = 0;
   }
 };
 
-// OFFSET FUNCTION
+// OFFSET FUNCTION -- Alternative shown by Yacine.
 
 // Maze.prototype._getMiner = function(offsetRow, offsetCol) {
 //   return this._maze[this._miner.row + offsetRow][this._miner.col + offsetCol];
@@ -66,26 +66,7 @@ Maze.prototype.isPathForward = function() {
     return false;
   }
   return true;
-  // if (!this._maze[this._miner.row - 1][this._miner.col]) {
-  //   return false;
-  //   //this.turnRight();
-  // } else if (!this._maze[this._miner.row][this._miner.col - 1]) {
-  //   return false;
-  // } else if (!this._maze[this._miner.row][this._miner.col + 1]) {
-  //   return false;
-  // }
-  //
-  // if (!this._maze[this._miner.row + 1][this._miner.col]) {
-  //   return false;
-  // }
-  // return true;
 
-  //   this.turnRight();
-  // return true;
-  // }
-  // if
-  //   this.turnRight();
-  // }
 };
 
 Maze.prototype.isPathLeft = function() {
@@ -166,7 +147,7 @@ Maze.prototype.moveForward = function() {
       }
     break;
      case 1:
-      if (this.isPathRight()) {
+      if (this.isPathForward() ) {
         this._miner.col++;
         return true;
       } else {
@@ -182,26 +163,19 @@ Maze.prototype.moveForward = function() {
      }
      break;
      case 3:
-
-
+    if ( this.isPathForward() ) {
+      this._miner.col--;
+      return true;
+    } else {
+      return false;
+    }
      break;
-
    }
 };
 
-Maze.prototype.notDone = function() {};
+Maze.prototype.notDone = function() {
+    return ((this._miner.row === this._exit.row) &&
+            (this._miner.col === this._exit.col));
+  };
 
 module.exports = Maze;
-
-// CODE FROM LAST LEVEL
-
-// while (notDone()) {
-//   if (isPathLeft()) {
-//     turnLeft();
-//   }
-//   if (isPathForward()) {
-//     moveForward();
-//   } else {
-//     turnRight();
-//   }
-// }

@@ -15,7 +15,7 @@ describe('Maze', function() {
       [ T,  T,  T,  T,  T,  F],
       [ T,  F,  F,  F,  F,  T],
       [ T,  T,  T,  T,  T,  T]];
-    exit= {row:5, col:5};
+    exit= {row:6, col:5};
     maze = new Maze(map, exit);
   });
 
